@@ -1,0 +1,13 @@
+.card {
+    margin-top: 100px;
+  border: solid 3px #3f729b;
+}
+
+.submit-btn {
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: black !important;
+  color: white !important;
+}
