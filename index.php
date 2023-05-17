@@ -80,28 +80,28 @@ $query = mysqli_query($con, $q);
                             <small id="candidatofeedback" for="select_candidato" class="d-none invalid-feedback mb-2"></small>
                         </div>
                         <h6 class="mt-2">Cómo se enteró de nosotros?</h6>
-                        <h6 id="radio" class="mt-2 d-none alert">Elija una opción</h6>
+                        <h6 id="radio" class="mt-2 d-none alert">Elija al menos 2 opciones</h6>
                         <div class="d-flex my-2 gap-3 justify-content-center">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio" id="web" value="web">
+                                <input class="form-check-input" type="checkbox" name="web" id="web" value="web">
                                 <label class="form-check-label" for="web">
                                     web
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio" id="TV" value="TV">
+                                <input class="form-check-input" type="checkbox" name="TV" id="TV" value="TV">
                                 <label class="form-check-label" for="TV">
                                     TV
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio" id="redes" value="redes">
+                                <input class="form-check-input" type="checkbox" name="redes" id="redes" value="redes">
                                 <label class="form-check-label" for="redes">
                                     Redes sociales
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio" id="amigo" value="amigo">
+                                <input class="form-check-input" type="checkbox" name="amigo" id="amigo" value="amigo">
                                 <label class="form-check-label" for="amigo">
                                     Amigo
                                 </label>

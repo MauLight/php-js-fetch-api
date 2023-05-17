@@ -39,7 +39,14 @@ $("#btn").on("click", (e) => {
   data.inputRegion = $("#select_region").find(":selected").text().trim();
   data.inputComuna = $("#select_comuna").find(":selected").text().trim();
   data.inputCandidato = $("#select_candidato").find(":selected").text().trim();
-  data.inputEntero = $('input[name="radio"]:checked').val();
+
+  let checkboxes = [];
+  $('input[type="checkbox"]:checked').each(function () {
+    checkboxes.push(this.value);
+  });
+
+  data.inputEntero = checkboxes.toString();
+  console.log(data.inputEntero);
 
   let aliasRegex = /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]{4,29}$/;
   let rutRegex = /^([1-9]|[1-9]\d|[1-9]\d{2})((\.\d{3})*|(\d{3})*)\-(\d|k|K)$/;
@@ -116,14 +123,13 @@ $("#btn").on("click", (e) => {
     $("#select_candidato").addClass("is-valid");
     $("#candidatofeedback").addClass("d-none");
   }
-
-  if (!data.inputEntero) {
-    $("#radio").removeClass("d-none");
-    $("#radio").addClass("alert-danger");
-  } else {
-    $("#radio").removeClass("alert-danger");
-    $("#radio").addClass("d-none");
-  }
+    if (!checkboxes || checkboxes.length < 2) {
+      $("#radio").removeClass("d-none");
+      $("#radio").addClass("alert-danger");
+    } else {
+      $("#radio").removeClass("alert-danger");
+      $("#radio").addClass("d-none");
+    }
 
   if (errors["nombre"]) $("#nombrefeedback").html(errors["nombre"]);
   if (errors["alias"]) $("#aliasfeedback").html(errors["alias"]);
@@ -134,7 +140,7 @@ $("#btn").on("click", (e) => {
   if (errors["candidato"]) $("#candidatofeedback").html(errors["candidato"]);
 
 
-  if (data.inputName && aliasRegex.test(data.inputAlias) && rutRegex.test(data.inputRut) && emailRegex.test(data.inputEmail) && data.inputRegion !== "Selecciona región" && data.inputComuna !== "Selecciona comuna" && data.inputCandidato !== "Selecciona candidato" && data.inputEntero) {
+  if (data.inputName && aliasRegex.test(data.inputAlias) && rutRegex.test(data.inputRut) && emailRegex.test(data.inputEmail) && data.inputRegion !== "Selecciona región" && data.inputComuna !== "Selecciona comuna" && data.inputCandidato !== "Selecciona candidato" && checkboxes.length > 2) {
     $.ajax({
       type: "POST",
       dataType: "html",
