@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("./php/connect.php");
 
 $q = "select * from regionestb";
 $query = mysqli_query($con, $q);
@@ -9,14 +9,14 @@ $query = mysqli_query($con, $q);
 <html lang="en">
 
 <head>
-    <title>js-fetch-api</title>
+    <title>formulario votación Desis</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <script src="./jquery/jquery-3.7.0.js"></script>
     <script type="module" src="app.js"></script>
 </head>
@@ -29,35 +29,51 @@ $query = mysqli_query($con, $q);
         <div class="container-fluid">
             <div class="card mx-auto p-5 border-3" style="width: 38rem">
                 <div class="card-body px-5 text-center">
-                    <h1 class="mb-5">Log In</h1>
+                    <h1 class="mb-5">Formulario de votación.</h1>
+                    <div id="vote"></div>
                     <form id="form">
-                        <input id="user" type="text" placeholder="Username" class="form-control mb-2" name="username" required />
+                        <input id="name" type="text" placeholder="Username" class="form-control mb-2" name="username" required />
                         <input id="alias" type="text" placeholder="Alias" class="form-control mb-2" name="alias" required />
                         <input id="rut" type="text" placeholder="Rut" class="form-control mb-2" name="rut" required />
                         <input id="email" type="email" placeholder="Email" class="form-control mb-2" name="email" required />
 
                         <div class="form-floating">
-                            <select class="form-select" id="select" aria-label="select">
-                                <option selected>Open this select menu</option>
+                            <select class="form-select" id="select_region" aria-label="select">
+                                <option selected>Selecciona región</option>
                                 <?php
                                 while ($table_data = mysqli_fetch_array($query)) {
                                 ?>
-                                    <option value=<?php echo $table_data['Id']; ?>>
+                                    <option name=<?php echo $table_data['Region_name']; ?> value=<?php echo $table_data['Id']; ?>>
                                         <?php echo $table_data['Region_name']; ?>
                                     </option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                            <label for="floatingSelect">Choose region</label>
                         </div>
                         <div class="form-floating mt-2">
-                            <select id="results" class="form-select" id="select" aria-label="select">
-                                <option selected>Open this select menu</option>
+                            <select id="select_comuna" class="form-select" aria-label="select">
+                                <option selected>Selecciona comuna</option>
                             </select>
-                            <label for="floatingSelect">Choose commune</label>
+                        </div>
+                        <div class="form-floating mt-2">
+                            <select id="select_candidato" class="form-select" id="select" aria-label="select">
+                                <option selected>Selecciona candidato</option>
+                                <?php
+                                $candidatos_q = "select * from candidatostb";
+                                $candidatos_query = mysqli_query($con, $candidatos_q);
+                                while ($table_data = mysqli_fetch_array($candidatos_query)) {
+                                ?>
+                                    <option value=<?php echo $table_data['Candidate_name']; ?>>
+                                        <?php echo $table_data['Candidate_name']; ?>
+                                    </option>
+                                <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <h6 class="mt-2">Cómo se enteró de nosotros?</h6>
+                        <h6 id="radio" class="mt-2 d-none alert">Elija una opción</h6>
                         <div class="d-flex my-2 gap-3 justify-content-center">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="radio" id="web" value="web">
