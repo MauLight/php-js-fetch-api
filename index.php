@@ -33,31 +33,37 @@ $query = mysqli_query($con, $q);
                     <div id="vote"></div>
                     <form id="form">
                         <input id="name" type="text" placeholder="Username" class="form-control mb-2" name="username" required />
+                        <small id="nombrefeedback" for="name" class="d-none invalid-feedback mb-2"></small>
                         <input id="alias" type="text" placeholder="Alias" class="form-control mb-2" name="alias" required />
+                        <small id="aliasfeedback" for="alias" class="d-none invalid-feedback mb-2"></small>
                         <input id="rut" type="text" placeholder="Rut" class="form-control mb-2" name="rut" required />
+                        <small id="rutfeedback" for="rut" class="d-none invalid-feedback mb-2"></small>
                         <input id="email" type="email" placeholder="Email" class="form-control mb-2" name="email" required />
+                        <small id="emailfeedback" for="email" class="d-none invalid-feedback mb-2"></small>
 
                         <div class="form-floating">
                             <select class="form-select" id="select_region" aria-label="select">
                                 <option selected>Selecciona región</option>
                                 <?php
                                 while ($table_data = mysqli_fetch_array($query)) {
-                                ?>
+                                    ?>
                                     <option name=<?php echo $table_data['Region_name']; ?> value=<?php echo $table_data['Id']; ?>>
-                                        <?php echo $table_data['Region_name']; ?>
-                                    </option>
+                                    <?php echo $table_data['Region_name']; ?>
+                                </option>
                                 <?php
                                 }
                                 ?>
                             </select>
+                            <small id="regionfeedback" for="select_region" class="d-none invalid-feedback mb-2"></small>
                         </div>
                         <div class="form-floating mt-2">
                             <select id="select_comuna" class="form-select" aria-label="select">
                                 <option selected>Selecciona comuna</option>
                             </select>
+                            <small id="comunafeedback" for="select_comuna" class="d-none invalid-feedback mb-2"></small>
                         </div>
                         <div class="form-floating mt-2">
-                            <select id="select_candidato" class="form-select" id="select" aria-label="select">
+                            <select id="select_candidato" class="form-select" id="select_candidato" aria-label="select">
                                 <option selected>Selecciona candidato</option>
                                 <?php
                                 $candidatos_q = "select * from candidatostb";
@@ -67,10 +73,11 @@ $query = mysqli_query($con, $q);
                                     <option value=<?php echo $table_data['Candidate_name']; ?>>
                                         <?php echo $table_data['Candidate_name']; ?>
                                     </option>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </select>
+                            <small id="candidatofeedback" for="select_candidato" class="d-none invalid-feedback mb-2"></small>
                         </div>
                         <h6 class="mt-2">Cómo se enteró de nosotros?</h6>
                         <h6 id="radio" class="mt-2 d-none alert">Elija una opción</h6>

@@ -15,3 +15,7 @@
 .test {
   font-weight: bold;
 }
+
+small {
+  padding-top: 0% !important;
+}
