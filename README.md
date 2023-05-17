@@ -23,6 +23,12 @@ INSTRUCCIONES:
 19) En el webBrowser, ingresa a la dirección http://localhost/php-js-fetch-api/
 20) Listo!
 
+Versiones:
+  + Apache 2.4.56
+  + MariaDB 10.4.28
+  + PHP 8.2.4 (VS16 X86 64bit thread safe) + PEAR
+  + phpMyAdmin 5.2.1
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 INSTRUCTIONS:
@@ -47,4 +53,10 @@ INSTRUCTIONS:
 18) Go to the C:\xampp\htdocs\php-js-fetch-api\sql folder and select the "chiledb" file.
 19) In the webBrowser, enter to the address http://localhost/php-js-fetch-api/
 20) Done!
+
+Versions:
+  + Apache 2.4.56
+  + MariaDB 10.4.28
+  + PHP 8.2.4 (VS16 X86 64bit thread safe) + PEAR
+  + phpMyAdmin 5.2.1
 
