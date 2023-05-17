@@ -34,15 +34,15 @@ INSTRUCTIONS:
 6) At the bottom of the Control panel is the log, when the log indicates "[Apache] Status change detected: running" it means that the server is active.
 7) Press Start in the Actions column corresponding to MySQL.
 8) When the log indicates "[MySQL] Status change detected: running" it means that MySQL is active.
-9) Open the file explorer and go to the address C:xamppddocs.
+9) Open the file explorer and go to the address C:/xamppddocs.
 10) Download the project from https://github.com/MauLight/php-js-fetch-api (press the Code button and then Download ZIP).
-11) Alernatively, open the folder C:\xampps and then, from terminal "git clone https://github.com/MauLight/php-js-fetch-api.git".
+11) Alernatively, open the folder C:/xampps and then, from terminal "git clone https://github.com/MauLight/php-js-fetch-api.git".
 12) Go back to xampp Control panel, in the MySQL row press the Admin button, a webBrowser window will open (http://localhost/phpmyadmin/).
 13) At the top of http://localhost/phpmyadmin/ click on the first option; Databases.
 14) In Databases, under Create database; type the Database name "chiledb" and then press the Create button.
 15) In the Treeview on the left side of the screen you will see the database "chiledb", select this database.
 16) At the top of the screen, click on Import. Under "File to import:"; click on Choose file.
-17) Go to the C:xampp folder and select the "chiledb" file.
+17) Go to the C:/xampp folder and select the "chiledb" file.
 18) In the webBrowser, enter to the address http://localhost/php-js-fetch-api/
 19) Done!
 
